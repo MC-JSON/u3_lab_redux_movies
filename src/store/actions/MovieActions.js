@@ -7,7 +7,7 @@ export const LoadMovies = () => {
       const movies = await GetMovies()
       dispatch({
         type: GET_MOVIES,
-        payload: movies
+        payload: movies.results
       })
     } catch (error) {
       throw error

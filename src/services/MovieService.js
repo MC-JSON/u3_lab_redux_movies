@@ -1,12 +1,12 @@
 import Client from './'
+const API_KEY = process.env.REACT_APP_API_KEY
 
 export const GetMovies = async () => {
   try {
     const res = await Client.get(
-      `discover/movie/?api_key=${process.env.REACT_APP_API_KEY}`
+      'https://api.themoviedb.org/3/movie/popular/?api_key=e8ee5e350d3e4010a76c5826e0babaa6'
     )
-    console.log(res.data.results)
-    return res.data.results
+    return res.data
   } catch (error) {
     throw error
   }
@@ -15,7 +15,7 @@ export const GetMovies = async () => {
 export const GetMovieDetails = async (movieId) => {
   try {
     const res = await Client.get(
-      `/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
+      `/${movieId}?api_key=e8ee5e350d3e4010a76c5826e0babaa6`
     )
     console.log(res.data)
     return res.data

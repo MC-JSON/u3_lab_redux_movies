@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import './styles/index.css'
 import App from './App'
@@ -10,10 +10,10 @@ const root = createRoot(document.getElementById('root'))
 
 root.render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>
 )

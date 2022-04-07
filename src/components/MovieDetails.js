@@ -8,7 +8,7 @@ const mapStateToProps = ({ movieDetailsState }) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { fetchTitle: (id) => dispatch(LoadMovieDetails(id)) }
+  return { fetchMovieDetails: (id) => dispatch(LoadMovieDetails(id)) }
 }
 
 const MovieDetails = (props) => {
@@ -16,14 +16,9 @@ const MovieDetails = (props) => {
 
   useEffect(() => {
     props.fetchMovieDetails(id)
-  }, [])
+  }, [id])
 
-  return (
-    <div>
-      <h1>{props.movieDetailsState.details.title}</h1>
-      <p>{props.movieDetailsState.details.overview}</p>
-    </div>
-  )
+  return <ul>{props.movieDetailsState.movieDetails.overview}</ul>
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails)

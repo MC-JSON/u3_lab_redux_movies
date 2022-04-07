@@ -14,15 +14,15 @@ const mapDispatchToProps = (dispatch) => {
 const Movies = (props) => {
   useEffect(() => {
     props.fetchMovies()
+    console.log(props)
   }, [])
 
   return (
     <div>
       {props.movieState.movies.map((movie) => (
-        <div key={movie.id}>
-          <h3>{movie.title}</h3>
+        <ul key={movie.id}>
           <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-        </div>
+        </ul>
       ))}
     </div>
   )
